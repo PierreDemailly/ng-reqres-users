@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <input type="search" formControlName="search" placeholder="Rechercher un utilisateur">
+  <p class="error" *ngIf="form.get('search')?.invalid">
+    Les caractères spéciaux ne sont pas autorisés.
+  </p>
+</form>
+
+<div class="users">
+  <div class="user" *ngFor="let user of filteredUsers">
+    <img src="{{ user.avatar }}" alt="{{ user.first_name }} avatar">
+    <div class="user-info">
+      <div>{{ user.first_name }} {{ user.last_name }}</div>
+      <div>{{ user.email }}</div>
+    </div>
+  </div>
+</div>
